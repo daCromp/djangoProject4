@@ -1,0 +1,37 @@
+{% extends 'home.html' %}
+
+{% block title %}Game detail{% endblock %}
+
+{% block content %}
+<h2>Game detail</h2>
+
+    <table>
+    <tr>
+        <td><b>Name:</b></td>
+        <td>{{ that_one_game.name }}<br></td>
+    </tr>
+    <tr>
+        <td><b>Genre:</b></td>
+        <td>{{ that_one_game.get_genre_display }}<br></td>
+    </tr>
+    <tr>
+        <td><b>Altersbeschraenkung:</b></td>
+        <td>{{ that_one_game.get_fsk_display }}<br></td>
+    </tr>
+    <tr>
+        <td><b>Ersteller:</b></td>
+        <td>{{ that_one_game.ersteller }}<br></td>
+    </tr>
+    <tr>
+        <td><b>Erstellung:</b></td>
+        <td>{{ that_one_game.erstellung }}<br></td>
+    </tr>
+{#    <tr>#}
+{#        <td><b>Date published:</b></td>#}
+{#        <td>{{ that_one_game.date_published }}<br></td>#}
+{#    </tr>#}
+    </table>
+
+    <br>
+    <a href="{% url 'game-list' %}">Back to all games</a>
+{% endblock %}
