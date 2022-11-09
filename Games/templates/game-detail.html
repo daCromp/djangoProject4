@@ -1,11 +1,16 @@
 {% extends 'home.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Games/gameStyles.css' %}">
+{% endblock %}
 
 {% block title %}Game detail{% endblock %}
 
 {% block content %}
 <h2>Game detail</h2>
 
-    <table>
+    <table class="center">
     <tr>
         <td><b>Name:</b></td>
         <td>{{ that_one_game.name }}<br></td>
@@ -20,7 +25,7 @@
     </tr>
     <tr>
         <td><b>Ersteller:</b></td>
-        <td>{{ that_one_game.ersteller }}<br></td>
+        <td>{{ that_one_game.user }}<br></td>
     </tr>
     <tr>
         <td><b>Erstellung:</b></td>
@@ -31,6 +36,8 @@
 {#        <td>{{ that_one_game.date_published }}<br></td>#}
 {#    </tr>#}
     </table>
+
+    <a href="{% url 'game-delete' that_one_game.id %}">Delete the game</a>
 
     <br>
     <a href="{% url 'game-list' %}">Back to all games</a>

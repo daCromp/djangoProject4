@@ -1,0 +1,17 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Games/gameStyles.css' %}">
+{% endblock %}
+
+{% block title %}Add game{% endblock %}
+
+{% block content%}
+<form method="post">{% csrf_token %}
+         <p>Delete "{{ object }}" ?</p>
+         <input type="submit" value="Yes">
+         <a href="{{ view.get_success_url }}" class="btn btn-default"><button type="No">Cancel</button></a>
+      </form>
+{% endblock %}
+

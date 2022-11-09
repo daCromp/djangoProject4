@@ -1,9 +1,9 @@
 {% extends 'home.html' %}
 {% load static %}
 
-{#{% block css %}#}
-{#    <link rel="stylesheet" type="text/css" href="{% static 'Game/games_style.css' %}">#}
-{#{% endblock %}#}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Games/gameStyles.css' %}">
+{% endblock %}
 
 {% block title %}Games list{% endblock %}
 
@@ -15,7 +15,7 @@
         <!-- Alternative link:
         <a href="{% url 'game-detail' game.id %}">
         -->
-        {{ game.genre }} / {{ game.get_fsk_display }} / {{ game.ersteller }} pages<br>
+        {{ game.genre }} / {{ game.get_fsk_display }} / {{ game.user }}<br>
         <br>
     {% endfor %}
 </ul>
