@@ -9,9 +9,9 @@
 
 {% block content%}
 <form method="post">{% csrf_token %}
-         <p>Delete "{{ object }}" ?</p>
+         <p>You really want to delete?</p>
          <input type="submit" value="Yes">
-         <a href="{{ view.get_success_url }}" class="btn btn-default"><button type="No">Cancel</button></a>
+         <a href="{% url 'game-list' %}" class="btn btn-default"><button type="button">Cancel</button></a>
       </form>
 {% endblock %}
 

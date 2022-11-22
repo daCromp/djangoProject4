@@ -11,8 +11,14 @@
 <h2>Add game</h2>
     <form method="POST">
         {% csrf_token %}
-        <!-- {{ form.as_table }} -->
-        {{ form.as_p }}
+
+        {% for field in form %}
+            <div class="fieldWrapper">
+                {{ field.errors }}
+                {{ field.label_tag }} {{ field }}
+            </div>
+        {% endfor %}
+
         <button type="submit">Add game</button>
     </form>
 {% endblock %}

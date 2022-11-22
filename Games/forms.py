@@ -1,5 +1,5 @@
 from django import forms
-from .models import Game
+from .models import Game, Comment
 
 
 class GameForm(forms.ModelForm):
@@ -12,4 +12,15 @@ class GameForm(forms.ModelForm):
             'fsk': forms.Select(choices=Game.FSK_TYPES),
             'user': forms.HiddenInput(),
             'erstellung': forms.HiddenInput(),
+        }
+
+
+class CommentForm(forms.ModelForm):
+
+    class Meta:
+        model = Comment
+        fields = ['text']
+        widgets = {
+            'user': forms.HiddenInput(),
+            'game': forms.HiddenInput(),
         }
